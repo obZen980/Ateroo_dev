@@ -1,0 +1,1361 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ateroo_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-31 06:46+0000\n"
+"PO-Revision-Date: 2026-03-31 06:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ateroo_base
+#: model:ir.actions.report,print_report_name:ateroo_base.report_delivery_package_label
+msgid "'Delivery package - %s' % (object.name)"
+msgstr "Colis - %s' % (object.name)"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "<span class=\"col-6\">Package to deliver</span>"
+msgstr "<span class=\"col-6\">Colis à livrer</span>"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "<span class=\"col-6\">Package to validate</span>"
+msgstr "<span class=\"col-6\">Colis à valider</span>"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "<span>Cm3</span>"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "<span>Cm</span>"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "<span>Kg</span>"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_tour_form
+msgid "<span>New</span>"
+msgstr "<span>Nouveau</span>"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "<span>Open</span>"
+msgstr "<span>Ouvrir</span>"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "<span>View</span>"
+msgstr "<span>Afficher</span>"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__active
+msgid "Active"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_state
+msgid "Activity State"
+msgstr "Statut de l'activité"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Type d'icone de l'activité"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__address
+msgid "Address"
+msgstr "Adresse"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "After"
+msgstr "Après"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_agency
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Agency"
+msgstr "Agence"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "All"
+msgstr "Tous"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_total
+msgid "Amount total"
+msgstr "Montant total"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_root
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
+msgid "Ateroo"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièce jointe"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__barcode
+msgid "Barcode data"
+msgstr "Données code barre"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "Before"
+msgstr "Avant"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__cash_on_delivery
+msgid "Cash on delivery"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__child_ids
+msgid "Child"
+msgstr "Dépôt"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__city
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_city
+msgid "City"
+msgstr "Ville"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.wizard_map_form
+msgid "Close"
+msgstr "Fermer"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__res_partner__ateroo_customer_type__company
+msgid "Company"
+msgstr "Société"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_product_pricelist_item__compute_price
+msgid "Compute Price"
+msgstr "Calculer le prix"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_configuration
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "Configuration"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Confirm"
+msgstr "Valider"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__count_deliver
+msgid "Count Deliver"
+msgstr "Nombre de colis délivrés"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__count_new
+msgid "Count New"
+msgstr "Nombre de nouveau colis"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Create invoice"
+msgstr "Créer une facture"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__current_location_id
+msgid "Current location"
+msgstr "Emplacement actuel"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__partner_id
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_res_partner__ateroo_customer_type
+#: model:ir.model.fields,field_description:ateroo_base.field_res_users__ateroo_customer_type
+msgid "Customer Type"
+msgstr "Type de client"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_agency
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_agency_dashboard
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_package
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_main_dashboard
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__delivered
+msgid "Delivered"
+msgstr "Livré"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__delivery_deposit
+msgid "Delivered in deposit"
+msgstr "Livré en agence"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__type__delivery
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__type__delivery
+msgid "Delivery"
+msgstr "Livraison"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_res_users__delivery_agency_ids
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_users_form_inherit
+msgid "Delivery Agency"
+msgstr "Agence"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Delivery Date"
+msgstr "Date de livraison"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_tour
+msgid "Delivery Tour"
+msgstr "Tournée de livraison"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_agency
+msgid "Delivery agency"
+msgstr "Agence de livraison"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_category
+msgid "Delivery category"
+msgstr "Catégorie de livraison"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__date
+msgid "Delivery date"
+msgstr "Date de livraison"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__date_planned
+msgid "Delivery date planned"
+msgstr "Date plannifiée de livraison"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__delivery_in_progress
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "Delivery in progress"
+msgstr "Livraison en cours"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_method
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__delivery_method_id
+msgid "Delivery method"
+msgstr "Méthode de livraison"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_method
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_delivery_method
+msgid "Delivery mode"
+msgstr "Mode de livraison"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+#: model:ir.model,name:ateroo_base.model_delivery_package
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Delivery package"
+msgstr "Colis"
+
+#. module: ateroo_base
+#: model:ir.actions.report,name:ateroo_base.report_delivery_package_label
+msgid "Delivery package Label (PDF)"
+msgstr "Impression Code barre"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_picking
+msgid "Delivery picking"
+msgstr "Transfert"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Delivery planned"
+msgstr "Livraison plannifiée"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Delivery ready"
+msgstr "Livraison prêt"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_tarif_zone
+msgid "Delivery tarif zone"
+msgstr "Zone tarifaire de livraison"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_tour
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_delivery_tour
+msgid "Delivery tour"
+msgstr "Tournée de livraison"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_transport
+msgid "Delivery transport"
+msgstr "Transport"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_transport
+msgid "Delivery transport mode"
+msgstr "Mode de transport"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+msgid "Departrue"
+msgstr "Départ"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__departure_latitude
+msgid "Departure Latitude"
+msgstr "Départ lat."
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__departure_longitude
+msgid "Departure Longitude"
+msgstr "Départ long."
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Deposit"
+msgstr "Dépôt"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__deposit_id
+msgid "Deposit center"
+msgstr "Centre de dépôt"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__description
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__name
+msgid "Description"
+msgstr "Nom"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__dest_agency_id
+msgid "Dest. agency"
+msgstr "Agence de destination"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__dest_deposit_id
+msgid "Dest. deposit center"
+msgstr "Centre de dépôt destination"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__destination_id
+msgid "Destination"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__destination_latitude
+msgid "Destination Latitude"
+msgstr "Destination lat."
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__destination_longitude
+msgid "Destination Longitude"
+msgstr "Destination long."
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_product_pricelist__dest_zone_id
+msgid "Destination zone"
+msgstr "Zone de destination"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__display_duration
+msgid "Display Duration"
+msgstr "Durrée"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__state__done
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__state__done
+msgid "Done"
+msgstr "Terminé"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__driver_id
+msgid "Driver"
+msgstr "Chauffeur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__duration
+msgid "Duration"
+msgstr "Durée"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__res_partner__ateroo_customer_type__e_commerce
+msgid "E-commerce"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__email
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_email
+msgid "Email"
+msgstr "Email destinataire"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+msgid "End"
+msgstr "Terminer"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__end_date
+msgid "End date"
+msgstr "Date de fin"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__is_favorite
+msgid "Favorites"
+msgstr "Favoris"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Partenaires)"
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Generate routes"
+msgstr "Générer les trajets"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Group By"
+msgstr "Groupé par"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__has_message
+msgid "Has Message"
+msgstr "Message?"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__height
+msgid "Height"
+msgstr "Hauteur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__id
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__id
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__id
+msgid "ID"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__message_has_error
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_1920
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_2
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_3
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_4
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_selector
+msgid "Image"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "In Sort"
+msgstr "En triage"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "In delivery"
+msgstr "Livraison en cours"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__state__in_progress
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__state__in_progress
+msgid "In progress"
+msgstr "En cours"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__in_sort
+msgid "In sorting"
+msgstr "En triage"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__network__inter_region
+msgid "Inter Region"
+msgstr "Inter-région"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__inter_region_available
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__inter_region_available
+msgid "Inter region available?"
+msgstr "Inter-région disponible?"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__type__internal
+msgid "Internal"
+msgstr "Interne"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__internal_domain
+msgid "Internal Domain"
+msgstr "Domaine interne"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__type__internal
+msgid "Internal operation"
+msgstr "Opération interne"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__internal_picking_ids
+msgid "Internal operations"
+msgstr "Opérations internes"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__network__intra_urban
+msgid "Intra urban"
+msgstr "Intra-urbain"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__invoice_count
+msgid "Invoice count"
+msgstr "Nombre de facture"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__invoice_ids
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
+msgid "Invoicing"
+msgstr "Facturation"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "J + 1"
+msgstr ""
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "J + 2"
+msgstr ""
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "J-1"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__kanban_dashboard_graph
+msgid "Kanban Dashboard Graph"
+msgstr "Graph du tableau de bord"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__landmark
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_landmark
+msgid "Landmark"
+msgstr "Point de repère"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__agency_latitude
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__map_latitude
+#: model:ir.model.fields,field_description:ateroo_base.field_map_tracking_mixin__map_latitude
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__map_latitude
+msgid "Latitude"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__length
+msgid "Length"
+msgstr "Longueur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__agency_longitude
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__map_longitude
+#: model:ir.model.fields,field_description:ateroo_base.field_map_tracking_mixin__map_longitude
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__map_longitude
+msgid "Longitude"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__map
+#: model:ir.model.fields,field_description:ateroo_base.field_map_tracking_mixin__map
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__map
+msgid "Map"
+msgstr "Carte"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_map_tracking_mixin
+msgid "Map tracking"
+msgstr "Tracking"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_product_pricelist_item__max_quantity
+msgid "Max. Quantity"
+msgstr "Quantité max."
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__sender_name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__name
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__name
+#: model:ir.model.fields,field_description:ateroo_base.field_res_region__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__network
+msgid "Network"
+msgstr "Réseau"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_tour.py:0
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__state__new
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "New"
+msgstr "Nouveau"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "New package"
+msgstr "Nouveau colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__state__none
+msgid "None"
+msgstr "Aucun"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_note
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__sender_note
+msgid "Note"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'action"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__type
+msgid "Operation type"
+msgstr "Type d'opération"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Operations"
+msgstr "Opérations"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__agency_id
+msgid "Origin agency"
+msgstr "Agence de dépôt"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_product_pricelist__orig_zone_id
+msgid "Origin zone"
+msgstr "Zone d'origine"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Pacakge details"
+msgstr "Détails du colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__package_id
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_delivery_package
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_agency_kanban
+msgid "Package"
+msgstr "Colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__package_domain
+msgid "Package Domain"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
+msgid "Package Product"
+msgstr "Produit pour le colis"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_package_category
+msgid "Package category"
+msgstr "Type de colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__package_price
+msgid "Package price"
+msgstr "Prix du colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__package_ids
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_tour_form
+msgid "Packages"
+msgstr "Coils"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__paid
+msgid "Paid"
+msgstr "Payé"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Parameter"
+msgstr "Paramètre"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_parameter
+msgid "Parameters"
+msgstr "Paramètres"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__parent_id
+msgid "Parent Agency"
+msgstr "Agence parent"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__res_partner__ateroo_customer_type__particular
+msgid "Particular"
+msgstr "Particulier"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+msgid "Partner is required to create invoice."
+msgstr "Un client est requis pour créer une facture"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__pending_payment
+msgid "Pending payment"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__phone
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_phone
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Photos"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__pick_id
+msgid "Pick"
+msgstr "Transfert"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__planned
+msgid "Planned"
+msgstr "Plannifié"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__price
+msgid "Price"
+msgstr "Prix"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_method__coef_price
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__coef_price
+msgid "Price Coef. "
+msgstr "Coefficient de prix"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__coef_price
+msgid "Price coef."
+msgstr "Coefficient de prix"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_product_pricelist
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__pricelist_id
+#: model:ir.ui.menu,name:ateroo_base.manu_ateroo_pricelist
+msgid "Pricelist"
+msgstr "Liste de prix"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Règle des listes des prix"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.ateroo_product_pricelist_action
+msgid "Pricelists"
+msgstr "Liste de prix"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Pricing"
+msgstr "Tarification"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
+msgid "Printing"
+msgstr "Impression"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__product_tmpl_id
+msgid "Product"
+msgstr "Article"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+msgid "Product is required to create invoice."
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__package_product_id
+msgid "Product package"
+msgstr "Produit pour le colis"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__product_pricelist_item__compute_price__range
+msgid "Range"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__ready
+msgid "Ready for delivery"
+msgstr "Prêt pour livraison"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__reception
+msgid "Reception"
+msgstr "Réception"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Recipient"
+msgstr "Destinataire"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_res_region
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_region_id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__region_id
+msgid "Region"
+msgstr "Région"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: ateroo_base
+#: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_tour__type__retrieve
+msgid "Retrieve"
+msgstr "Récupération"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__delivery_picking_ids
+msgid "Routes"
+msgstr "Trajets"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "Sample data"
+msgstr "Données"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "Search delivery pacakge"
+msgstr "Recherche de colis"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
+msgid "Secret key"
+msgstr "Clé secrète"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__secret_key
+msgid "Secret key for barcode"
+msgstr "Clé secrète pour le code barre"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Sender"
+msgstr "Initiateur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__sequence
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__display_size
+msgid "Size"
+msgstr "Taille"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+msgid "Start"
+msgstr "Commencer"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__start_date
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: ateroo_base
+#. odoo-javascript
+#: code:addons/ateroo_base/static/src/xml/ateroo_tour_list.xml:0
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__state
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__state
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__state
+msgid "State"
+msgstr "Etat"
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_street
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__street
+msgid "Street"
+msgstr "Adresse du destinataire"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_street2
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__street2
+msgid "Street2"
+msgstr "Adresse 2 du destinataire"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.maneu_ateroo_tarif_zone
+msgid "Tarif zone"
+msgstr "Zone tarifaire"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__to_retrieve
+msgid "To retrieve"
+msgstr "A récupérer"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_agency.py:0
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__token
+msgid "Token"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__start_date
+msgid "Tour date"
+msgstr "Date de tournée"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
+msgid "Tracking"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.maneu_ateroo_transport_mode
+msgid "Transport mode"
+msgstr "Mode de transport"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__category_id
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__type
+msgid "Type"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+msgid "Unable to find report template for %s format"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_product_pricelist_item__compute_price
+msgid ""
+"Use the discount rules and activate the discount settings in order to show "
+"discount to customer."
+msgstr ""
+"Utilisez les règles de remise et activez les paramètres de remise afin de "
+"montrer la remise au client."
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_res_config_settings__package_product_id
+msgid "Used for invoicing delivery package"
+msgstr "Utilisé pour la facturation de la livraison des colis"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_res_users
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: ateroo_base
+#: model:ir.ui.menu,name:ateroo_base.menu_ateroo_vehicle
+msgid "Vehicle"
+msgstr "Véhicule"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__volume
+msgid "Volume"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__volumetric_weight
+msgid "Volumetric weight"
+msgstr "Poids volumétrique"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__warehouse_id
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,help:ateroo_base.field_delivery_package__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__weight
+msgid "Weight"
+msgstr "Poids"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_category__weight_limit
+msgid "Weight limit"
+msgstr "Poids limite"
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_category_form
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_category_list
+msgid "Weight limit (kq)"
+msgstr "Poids limite (kg)"
+
+#. module: ateroo_base
+#. odoo-python
+#: code:addons/ateroo_base/models/delivery_package.py:0
+msgid "Weight should be above 0."
+msgstr "Le poids doit être supérieur à 0"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__width
+msgid "Width"
+msgstr "Longueur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__zone_id
+msgid "Zone"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_category
+msgid "delivery.category"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_delivery_tarif_zone
+msgid "delivery.tarif.zone"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__departure_id
+msgid "departure"
+msgstr ""
+
+#. module: ateroo_base
+#: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+msgid "state"
+msgstr "Etat"
+
+#. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_wizard_map
+msgid "wizard.map"
+msgstr ""

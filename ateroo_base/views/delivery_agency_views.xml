@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="delivery_agency_tree" model="ir.ui.view">
+        <field name="name">delivery.agency.tree</field>
+        <field name="model">delivery.agency</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="display_name"/>
+                <field name="parent_id"/>
+                <field name="zone_id" required="1"/>
+<!--                <field name="warehouse_id"/>-->
+            </list>
+        </field>
+     </record>
+
+    <record id="delivery_agency_form" model="ir.ui.view">
+        <field name="name">delivery.agency.form</field>
+        <field name="model">delivery.agency</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"  nolabel="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="zone_id"/>
+                        </group>
+                        <group>
+<!--                            <field name="warehouse_id"/>-->
+                            <field name="agency_longitude"/>
+                            <field name="agency_latitude"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="delivery_agency_kanban" model="ir.ui.view">
+        <field name="name">delivery.agency.kanban</field>
+        <field name="model">delivery.agency</field>
+        <field name="arch" type="xml">
+            <kanban highlight_color="color" class="o_stock_kanban" js_class="ateroo_dashboard_kanban" records_draggable="0" create="0" group_create="false" can_open="0">
+                <field name="name"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="menu">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 role="menuitem" class="o_kanban_card_manage_title">
+                                        <span>View</span>
+                                    </h5>
+                                    <div role="menuitem">
+                                        <a name="action_view_all_package" type="object">All</a>
+                                    </div>
+                                    <div role="menuitem">
+                                        <a name="action_view_new_package" type="object">Package</a>
+                                    </div>
+                                    <div role="menuitem">
+                                        <a name="action_view_delivery_package" type="object">Delivery in progress</a>
+                                    </div>
+                                </div>
+                                <div name="kanban_menu_section" class="col-6">
+                                    <h5 role="menuitem" class="o_kanban_card_manage_title">
+                                        <a name="action_create_new_package" type="action">New</a>
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                <div class="col-8" role="menuitem" aria-haspopup="true">
+                                    <field name="color" widget="kanban_color_picker"/>
+                                </div>
+                            </div>
+
+                            <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                <field name="is_favorite" widget="boolean_favorite" class="col-6"/>
+                                <div class="col-6 text-end">
+                                    <a class="dropdown-item" role="menuitem" type="open">Configuration</a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-name="card">
+                        <div class="px-2">
+                            <a type="object" name="action_view_delivery_agency">
+                                <field class="fw-bold fs-4" name="name"/>
+                            </a>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <button class="btn btn-primary" name="action_view_all_package" type="object">
+                                        <span>Open</span>
+                                    </button>
+                                </div>
+                                <div class="col-6 stock-overview-links">
+                                    <div t-if="record.count_new.raw_value &gt; 0" class="row">
+                                        <a class="col-8 offset-4 pe-0 text-truncate" name="action_view_package_new" type="object">
+                                            <div class="row">
+                                                <span class="col-6">Nouveau colis</span>
+                                                <field class="col-2 text-end" name="count_new"/>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div t-if="record.count_deliver.raw_value &gt; 0" class="row">
+                                        <a class="col-8 offset-4 pe-0 text-truncate" name="action_view_package_deliver" type="object">
+                                            <div class="row">
+                                                <span class="col-6">Colis à livrer</span>
+                                                <field class="col-2 text-end" name="count_deliver"/>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <field name="kanban_dashboard_graph" class="mt-auto" graph_type="bar" widget="ateroo_kanban_graph"/>
+                        </div>
+                    </t>
+
+
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_delivery_agency_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">delivery.agency</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="domain">[('parent_id', '=', False)]</field>
+    </record>
+
+    <record id="action_delivery_agency" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">delivery.agency</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+</odoo>

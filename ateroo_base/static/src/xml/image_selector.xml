@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+    <t t-name="ateroo_base.image_selector">
+        <div class="image-selector">
+            <div class="main-image">
+                <ImageField t-props="state.currentImage"/>
+            </div>
+            <div class="secondary-image">
+                <ImageField t-props="getProps('image_1920', false)" t-on-click="(ev) => this.selectImage(ev, 'image_1920')"/>
+                <ImageField t-props="getProps('image_2', false)" t-on-click="(ev) => this.selectImage(ev, 'image_2')"/>
+                <ImageField t-props="getProps('image_3', false)" t-on-click="(ev) => this.selectImage(ev, 'image_3')"/>
+            </div>
+        </div>
+    </t>
+
+</templates>

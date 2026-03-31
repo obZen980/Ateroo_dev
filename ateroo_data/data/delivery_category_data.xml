@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="delivery_category_letter" model="delivery.category">
+            <field name="name">Lettre</field>
+            <field name="description">Petits envois</field>
+            <field name="weight_limit" eval="'0.5'"/>
+            <field name="coef_price" eval="'1'"/>
+        </record>
+        <record id="delivery_category_little" model="delivery.category">
+            <field name="name">Petit</field>
+            <field name="description">Livrable rapide</field>
+            <field name="weight_limit" eval="'2'"/>
+            <field name="coef_price" eval="'1.1'"/>
+        </record>
+        <record id="delivery_category_average" model="delivery.category">
+            <field name="name">Moyen</field>
+            <field name="description">Standard</field>
+            <field name="weight_limit" eval="'10'"/>
+            <field name="coef_price" eval="'1.5'"/>
+        </record>
+        <record id="delivery_category_big" model="delivery.category">
+            <field name="name">Volumineux</field>
+            <field name="description">Requiert manipulation</field>
+            <field name="weight_limit" eval="'25'"/>
+            <field name="coef_price" eval="'1.5'"/>
+        </record>
+        <record id="delivery_category_palette" model="delivery.category">
+            <field name="name">Palette</field>
+            <field name="description">Petits envois</field>
+            <field name="coef_price" eval="'2'"/>
+        </record>
+    </data>
+
+</odoo>

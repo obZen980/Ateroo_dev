@@ -1,0 +1,31 @@
+.image-selector {
+    display: flex;
+    gap: 16px;
+}
+
+.main-image img {
+    width: 90%;
+    height: 30%;
+    --object-fit: contain;
+    border-radius: 8px;
+}
+
+.secondary-image {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.secondary-image img {
+    width: 70%;
+    --height: 90px;
+
+}
+.secondary-image img.active {
+    opacity: 1;
+    border: 2px solid #3b82f6;
+}
+.img-fixed {
+    object-fit: contain;
+    background: #fff;
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+<!--    <t t-name="ateroo.ListRenderer.Rows" t-inherit="web.ListRenderer.Rows" t-inherit-mode="primary">-->
+<!--        <xpath expr="//t[@t-foreach='list.records']/t[1]" position="after">-->
+<!--            <AterooTourComponent record="record"/>-->
+<!--         </xpath>-->
+<!--    </t>-->
+<!--    -->
+    <t t-name="ateroo.ListRenderer.RecordRow" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="primary">
+        <xpath expr="//tr[1]" position="after">
+            <tr>
+                 <AterooTourComponent record="record"/>
+            </tr>
+
+         </xpath>
+    </t>
+
+    <t t-name="ateroo.Tourtemplate">
+            <table class="table table-borderless ">
+                <t t-foreach="state.tours" t-as="pick" t-key="pick.id">
+                    <tr>
+                        <td style="width:16%"><strong>Customer</strong></td>
+                        <td style="width:28%"><strong>Departrue</strong></td>
+                        <td style="width:28%"><strong>Destination</strong></td>
+                        <td style="width:6%"><strong>State</strong></td>
+                        <td style="width:6%"><strong>Start Date</strong></td>
+                        <td style="width:8%"><strong>End date</strong></td>
+                        <td style="width:8%"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul style="list-style: none; padding-left: 10px;">
+                                <li t-esc="pick.customer_name"/>
+                                <li t-esc="pick.customer_phone"/>
+                                <li t-if="pick.customer_email"><t t-esc="pick.customer_email"/></li>
+                                <li t-if="pick.customer_city"><t t-esc="pick.customer_city"/></li>
+                            </ul>
+                        </td>
+                        <td style="white-space: normal; overflow: visible; text-overflow: unset;">
+                            <t t-if="pick.display_sender_address">
+                                <ul style="list-style: none; padding-left: 10px;">
+                                    <li t-esc="pick.customer_street"/>
+                                    <li t-if="pick.customer_street2"><t t-esc="pick.customer_street2"/></li>
+                                    <li t-if="pick.customer_landmark"><t t-esc="pick.customer_landmark"/></li>
+                                </ul>
+                            </t>
+                            <t t-else="not pick.display_sender_address">
+                                <ul style="list-style: none; padding-left: 10px;">
+                                    <li t-esc="pick.departure"/>
+                                </ul>
+                            </t>
+                        </td>
+                        <td style="white-space: normal; overflow: visible; text-overflow: unset;">
+                            <t t-if="pick.display_recipient_address">
+                                <ul style="list-style: none; padding-left: 10px;">
+                                    <li t-esc="pick.recipient_street"/>
+                                    <li t-if="pick.recipient_street2"><t t-esc="pick.recipient_street2"/></li>
+                                    <li t-if="pick.recipient_landmark"><t t-esc="pick.recipient_landmark"/></li>
+                                </ul>
+                            </t>
+                            <t t-else="not pick.display_sender_address">
+                                <ul style="list-style: none; padding-left: 10px;">
+                                    <li t-esc="pick.destination"/>
+                                </ul>
+                            </t>
+                        </td>
+                        <td>
+                            <p t-esc="pick.display_state"></p>
+                        </td>
+                        <td>
+                            <p t-if="pick.start_date"><t t-esc="pick.start_date"/></p>
+                        </td>
+                        <td>
+                            <p t-if="pick.end_date"><t t-esc="pick.end_date"/></p>
+                        </td>
+                        <td>
+                            <button t-if="pick.state == 'none'"
+                                    class="btn btn-primary"
+                                    title="Start"
+                                    t-att-pick="pick.id"
+                                    t-on-click="(pick) => this.action_start(pick)">Start</button>
+                            <button t-if="pick.state == 'in_progress'"
+                                    class="btn btn-primary"
+                                    title="End"
+                                    t-att-pick="pick.id"
+                                    t-on-click="(pick) => this.action_done(pick)">End</button>
+                            <img
+                                    src="/ateroo_base/static/src/img/location.png"
+                                    style="max-width: 35px;"
+                                    t-att-pick="pick.id"
+                                    t-on-click="(ev) => this.displayOnMap(ev)"/>
+                        </td>
+
+                    </tr>
+                </t>
+            </table>
+
+    </t>
+</templates>

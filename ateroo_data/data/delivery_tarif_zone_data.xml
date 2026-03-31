@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="zone_toamasina" model="delivery.tarif.zone">
+            <field name="name">TOAMASINA</field>
+        </record>
+        <record id="zone_fianaratsoa" model="delivery.tarif.zone">
+            <field name="name">FIANARANTSOA</field>
+        </record>
+        <record id="zone_antsirabe" model="delivery.tarif.zone">
+            <field name="name">ANTSIRABE</field>
+        </record>
+        <record id="zone_mahajanga" model="delivery.tarif.zone">
+            <field name="name">MAHAJANGA</field>
+        </record>
+        <record id="zone_morondava" model="delivery.tarif.zone">
+            <field name="name">MORONDAVA</field>
+        </record>
+        <record id="zone_ambatondrazaka" model="delivery.tarif.zone">
+            <field name="name">AMBATONDRAZAKA</field>
+        </record>
+        <record id="zone_tulear" model="delivery.tarif.zone">
+            <field name="name">TULEAR</field>
+        </record>
+        <record id="zone_diego" model="delivery.tarif.zone">
+            <field name="name">DIEGO</field>
+        </record>
+        <record id="zone_ambilobe" model="delivery.tarif.zone">
+            <field name="name">AMBILOBE</field>
+        </record>
+        <record id="zone_ambanja" model="delivery.tarif.zone">
+            <field name="name">AMBANJA</field>
+        </record>
+        <record id="zone_antananarivo" model="delivery.tarif.zone">
+            <field name="name">ANTANANARIVO</field>
+        </record>
+         <record id="zone_antsiranana" model="delivery.tarif.zone">
+            <field name="name">ANTSIRANANA</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_pricelist_form_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.form.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='country_group_ids']" position="after">
+                <field name="orig_zone_id" invisible="not context.get('ateroo', False)"/>
+                <field name="dest_zone_id" invisible="not context.get('ateroo', False)"/>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']/list/field[@name='min_quantity']" position="after">
+                <field name="max_quantity" invisible="compute_price != 'range'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_pricelist_item_form_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.item.form.inherit</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='min_quantity']" position="after">
+                <field name="max_quantity" invisible="compute_price != 'range'"/>
+            </xpath>
+            <xpath expr="//group[@name='pricelist_rule_method']/div[1]" position="attributes">
+                <attribute name="invisible">compute_price not in ('fixed', 'range')</attribute>
+            </xpath>
+            <xpath expr="//group[@name='pricelist_rule_method']/div[1]/span[1]" position="attributes">
+                <attribute name="invisible">compute_price == 'range'</attribute>
+            </xpath>
+            <xpath expr="//label[@for='fixed_price']" position="attributes">
+                <attribute name="invisible">compute_price not in ('fixed', 'range')</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="ateroo_product_pricelist_action" model="ir.actions.act_window">
+        <field name="name">Pricelists</field>
+        <field name="res_model">product.pricelist</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="product.product_pricelist_view_search" />
+        <field name="context">{"default_base":'list_price', 'ateroo': True}</field>
+    </record>
+</odoo>

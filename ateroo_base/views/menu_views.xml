@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem
+                id="menu_ateroo_root"
+                name="Ateroo"
+                sequence="10"
+                web_icon="ateroo_base,static/description/icon.png"
+                />
+    <menuitem
+                id="menu_ateroo_main_dashboard"
+                name="Dashboard"
+                parent="menu_ateroo_root"
+                action="ateroo_base.action_delivery_agency_dashboard"
+                sequence="0"
+                />
+    <menuitem
+                id="menu_ateroo_delivery_package"
+                name="Package"
+                parent="menu_ateroo_root"
+                action="ateroo_base.action_delivery_package"
+                sequence="1"
+                />
+<!--    <menuitem-->
+<!--                id="menu_ateroo_quanlity_control"-->
+<!--                name="Quality control"-->
+<!--                parent="menu_ateroo_root"-->
+<!--                action=""-->
+<!--                sequence="2"-->
+<!--                />-->
+    <menuitem
+                id="menu_ateroo_delivery_tour"
+                name="Delivery tour"
+                parent="menu_ateroo_root"
+                action="ateroo_base.action_delivery_tour"
+                sequence="2"
+                />
+    <menuitem
+                id="menu_ateroo_agency"
+                name="Agency"
+                parent="menu_ateroo_root"
+                action="ateroo_base.action_delivery_agency"
+                sequence="3"
+                />
+    <menuitem
+                id="menu_ateroo_vehicle"
+                name="Vehicle"
+                parent="menu_ateroo_root"
+                action=""
+                sequence="4"
+                />
+    <menuitem
+                id="menu_ateroo_configuration"
+                name="Configuration"
+                parent="menu_ateroo_root"
+                sequence="5"
+                />
+    <menuitem
+                id="menu_ateroo_parameter"
+                name="Parameters"
+                parent="menu_ateroo_configuration"
+                action=""
+                sequence="0"
+                />
+    <menuitem
+                id="menu_ateroo_package_category"
+                name="Package category"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_delivery_category"
+                sequence="1"
+                />
+    <menuitem
+                id="maneu_ateroo_transport_mode"
+                name="Transport mode"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_delivery_transport"
+                sequence="2"
+                />
+    <menuitem
+                id="menu_ateroo_delivery_method"
+                name="Delivery mode"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_delivery_method"
+                sequence="3"
+                />
+    <menuitem
+                id="maneu_ateroo_tarif_zone"
+                name="Tarif zone"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_delivery_tarif_zone"
+                sequence="4"
+                />
+    <menuitem
+                id="manu_ateroo_pricelist"
+                name="Pricelist"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.ateroo_product_pricelist_action"
+                sequence="5"
+                />
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="delivery_tarif_zone_list" model="ir.ui.view">
+        <field name="name">delivery.tarif.zone.list</field>
+        <field name="model">delivery.tarif.zone</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+     </record>
+
+    <record id="delivery_tarif_zone_form" model="ir.ui.view">
+        <field name="name">delivery.tarif.zone.list</field>
+        <field name="model">delivery.tarif.zone</field>
+        <field name="arch" type="xml">
+            <form>
+                <shee>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </shee>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_delivery_tarif_zone" model="ir.actions.act_window">
+        <field name="name">Delivery tarif zone</field>
+        <field name="res_model">delivery.tarif.zone</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

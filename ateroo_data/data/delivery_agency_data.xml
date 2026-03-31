@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="customer_location" model="delivery.agency">
+            <field name="name">Adresse client</field>
+            <field name="active" eval="False"></field>
+        </record>
+        <record id="customer_destination" model="delivery.agency">
+            <field name="name">Adresse destination</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</odoo>

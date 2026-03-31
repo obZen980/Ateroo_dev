@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_deliverypackage4x7">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <t t-set="columns" t-value="4"/>
+                    <t t-set="rows" t-value="7"/>
+                    <t t-set="padding_page" t-value="'padding: 14mm 3mm'"/>
+                    <t t-set="report_to_call" t-value="'2x7'"/>
+                    <t t-set="table_style" t-value="'border: 1px solid black;'"/>
+                    <t t-call="web.html_container">
+                        <div class="o_label_sheet" t-att-style="padding_page">
+                            <table class="my-0 table table-sm table-borderless">
+                                <tr>
+                                    <t t-set="barcode_size" t-value="'width:66mm;height:18mm'"/>
+                                    <t t-set="table_style" t-value="'width:97mm;height:37.1mm;' + table_style"/>
+                                    <td>
+                                        <div class="o_label_full" t-att-style="table_style">
+                                            <div class="o_label_name">
+                                                <strong t-field="doc.name"/>
+                                            </div>
+                                            <div class= "text-center o_label_small_barcode">
+                                                <span class="text-nowrap" t-field="doc.display_size"/>
+                                                <t t-if="doc.barcode">
+                                                    <div t-out="doc.barcode" style="padding:0" t-options="{'widget': 'barcode',  'symbology': 'auto', 'img_style': barcode_size}"/>
+                                                    <span class="text-center" t-out="doc.barcode"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+            </t>
+
+        </t>
+
+    </template>
+</odoo>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="ateroo_base.OSMAddressAutocomplete" t-inherit="web.CharField" t-inherit-mode="primary">
+        <xpath expr="//input[@class='o_input']" position="attributes">
+            <attribute name="t-on-input">onInput</attribute>
+        </xpath>
+        <xpath expr="//div[@class='o_field_input_buttons']" position="replace">
+            <div class="o_field_input_buttons" style="right: auto">
+                <img
+                    src="/ateroo_base/static/src/img/location.png"
+                    style="max-width: 15px;max-height: 15px;margin-right: 5px;margin-top: 3px;"
+                    t-on-click="displayOnMap"/>
+            </div>
+            <ul t-if="state.suggestions.length" class="dropdown-menu show" style="margin-top: 30px;">
+                <li t-foreach="state.suggestions" t-as="s" t-key="s.place_id">
+                    <a class="dropdown-item"
+                       t-on-click="() => selectAddress(s)">
+                        <t t-esc="s.display_name"/>
+                    </a>
+                </li>
+            </ul>
+        </xpath>
+    </t>
+
+</templates>
