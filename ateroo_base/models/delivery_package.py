@@ -115,7 +115,7 @@ class DeliveryPackage(models.Model):
     @api.depends('state', 'delivery_picking_ids.state', 'internal_picking_ids.state')
     def _compute_current_location(self):
         for rec in self:
-            location = self.env.ref('ateroo_data.customer_location')
+            location = self.env.ref('ateroo_data.customer_location', raise_if_not_found=False)
             if rec.state == 'reception' and rec.agency_id:
                 location = rec.agency_id
             elif rec.state in ['in_sort', 'ready', 'planned', 'delivery_in_progress']:
@@ -128,8 +128,8 @@ class DeliveryPackage(models.Model):
             elif rec.state == 'delivery_deposit':
                 location = rec.dest_agency_id
             elif rec.state in ['delivered', 'paid', 'pending_payment']:
-                location = self.env.ref('ateroo_data.customer_destination')
-            rec.current_location_id = location.id
+                location = self.env.ref('ateroo_data.customer_destination', raise_if_not_found=False)
+            rec.current_location_id = location and location.id or False
 
     @api.depends('weight')
     def _compute_category(self):
