@@ -143,7 +143,9 @@
                         </group>
                         <group name="pricing" string="Pricing">
                             <field name="product_tmpl_id"/>
-                            <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                            <field name="customer_type" invisible="1"/>
+                            <field name="include_package_price" invisible="customer_type not in ('e_commerce')"/>
+                            <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" invisible="not include_package_price" />
                             <field name="pricelist_id"/>
                             <field name="currency_id" invisible="1"/>
                             <separator/>

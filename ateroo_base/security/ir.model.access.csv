@@ -26,3 +26,6 @@ access_delivery_picking_admin,access_delivery_picking.admin,ateroo_base.model_de
 access_delivery_tour_read,access_delivery_tour.read,ateroo_base.model_delivery_tour,,1,0,0,0
 access_delivery_tour_user,access_delivery_tour.user,ateroo_base.model_delivery_tour,base.group_user,1,1,1,0
 access_delivery_tour_admin,access_delivery_tour.admin,ateroo_base.model_delivery_tour,base.group_system,1,1,1,1
+access_res_region_read,access_res_region.read,ateroo_base.model_res_region,,1,0,0,0
+access_res_region_user,access_res_region.user,ateroo_base.model_res_region,base.group_user,1,1,1,0
+access_res_region_admin,access_res_region.admin,ateroo_base.model_res_region,base.group_system,1,1,1,1

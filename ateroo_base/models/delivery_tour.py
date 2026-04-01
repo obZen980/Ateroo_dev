@@ -91,14 +91,14 @@ class DeliveryTour(models.Model):
     def create(self, vals):
         res = super().create(vals)
         for rec in res:
-            if not rec.sequence:
+            if not rec.name:
                 rec.set_sequence()
         return res
 
     def set_sequence(self):
         self.ensure_one()
         sequence_obj = self.env['ir.sequence']
-        self.sequence = sequence_obj.next_by_code('sequence.delivery.tour')
+        self.name = sequence_obj.next_by_code('sequence.delivery.tour')
         return True
 
 

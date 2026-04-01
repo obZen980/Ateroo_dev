@@ -46,6 +46,10 @@ class DeliveryPackage(models.Model):
     dest_deposit_id = fields.Many2one('delivery.agency', 'Dest. deposit center', domain="[('id', 'child_of', dest_agency_id)]")
 
     partner_id = fields.Many2one('res.partner', 'Customer', tracking=True)
+    customer_type = fields.Selection([
+        ('particular', 'Particular'),
+        ('e_commerce', 'E-commerce'),
+        ('company', 'Company')], related='partner_id.ateroo_customer_type')
     sender_name = fields.Char('Name', tracking=True)
     phone = fields.Char('Phone', tracking=True)
     email = fields.Char('Email')
@@ -87,6 +91,7 @@ class DeliveryPackage(models.Model):
     token = fields.Char("Token", copy=False)
     pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
     product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
+    include_package_price = fields.Boolean('Inclure le prix du colis')
     package_price = fields.Float('Package price', default=0.0)
     currency_id = fields.Many2one('res.currency',  compute='_compute_currency')
     invoice_ids = fields.Many2many('account.move', 'package_id', 'move_id', string='Invoices')
@@ -342,7 +347,7 @@ class DeliveryPackage(models.Model):
             'product_uom_id': self.product_tmpl_id.uom_id.id,
             'price_unit': price,
         }))
-        if self.package_price and self.package_price and package_product:
+        if self.package_price and self.include_package_price and package_product:
             vals.append((0, 0, {
                 'product_id': package_product.id,
                 'name': self.name,
