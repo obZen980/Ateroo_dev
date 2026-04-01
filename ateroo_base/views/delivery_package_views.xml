@@ -44,7 +44,7 @@
                         <group>
                             <field name="delivery_method_id"/>
                             <field name="network" widget="radio" options="{'horizontal': True}" readonly="not inter_region_available" force_save="True"/>
-                            <field name="to_retrieve"/>
+                            <field name="to_retrieve" readonly="not inter_region_available" force_save="True"/>
                             <field name="cash_on_delivery"/>
                             <field name="date"/>
                             <field name="date_planned"/>

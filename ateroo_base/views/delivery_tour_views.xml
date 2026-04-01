@@ -9,14 +9,9 @@
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
-                    <div class="oe_title" invisible="not name">
+                    <div class="oe_title">
                         <h1>
-                            <field name="name" readonly="1"/>
-                        </h1>
-                    </div>
-                    <div class="oe_title" invisible="name">
-                        <h1>
-                            <span>New</span>
+                            <field name="name" readonly="1" force_save="True"/>
                         </h1>
                     </div>
                     <group>

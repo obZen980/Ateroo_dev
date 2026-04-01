@@ -17,6 +17,7 @@
     'data':[
         # data
         'data/ir_sequence.xml',
+        'data/ir_sequence_tour.xml',
 
         # security
         'security/ir.model.access.csv',

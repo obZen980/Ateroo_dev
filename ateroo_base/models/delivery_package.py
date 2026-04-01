@@ -257,7 +257,8 @@ class DeliveryPackage(models.Model):
     def action_generate_routes(self):
         self.ensure_one()
         routes = []
-        routes.append(self.env.ref('ateroo_data.customer_location'))
+        if self.to_retrieve:
+            routes.append(self.env.ref('ateroo_data.customer_location'))
         routes.append(self.agency_id)
         routes.append(self.dest_agency_id)
         # if self.recipient_street:
@@ -420,6 +421,7 @@ class DeliveryPackage(models.Model):
             self.dest_agency_id = False
             self.agency_id = False
             self.network = 'intra_urban'
+            self.to_retrieve = True
 
     @api.onchange('network')
     def onchange_network(self):
