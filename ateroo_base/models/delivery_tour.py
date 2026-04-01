@@ -91,8 +91,7 @@ class DeliveryTour(models.Model):
     def create(self, vals):
         res = super().create(vals)
         for rec in res:
-            if not rec.name:
-                rec.set_sequence()
+            rec.set_sequence()
         return res
 
     def set_sequence(self):
