@@ -75,8 +75,9 @@ class DeliveryPicking(models.Model):
                 response = requests.get(url, params=params, headers=headers)
                 if str(response.status_code).startswith('2'):
                     result = response.json()
-                    departure_latitude = result[0]['lat']
-                    departure_longitude = result[0]['lon']
+                    if len(result):
+                        departure_latitude = result[0]['lat']
+                        departure_longitude = result[0]['lon']
             else:
                 departure_latitude = rec.departure_id.agency_latitude
                 departure_longitude = rec.departure_id.agency_longitude
@@ -86,18 +87,23 @@ class DeliveryPicking(models.Model):
                 response = requests.get(url, params=params, headers=headers)
                 if str(response.status_code).startswith('2'):
                     result = response.json()
-                    destination_latitude = result[0]['lat']
-                    destination_longitude = result[0]['lon']
+                    if len(result):
+                        destination_latitude = result[0]['lat']
+                        destination_longitude = result[0]['lon']
             else:
                 destination_latitude = rec.destination_id.agency_latitude
                 destination_longitude = rec.destination_id.agency_longitude
 
-            url2 = f"http://router.project-osrm.org/route/v1/driving/{departure_longitude},{departure_latitude};{destination_longitude},{destination_latitude}"
-            params = {"overview": "false"}
-            response = requests.get(url2, params=params)
-            data = response.json()
-            route = data["routes"][0]
-            distance_meters = route["distance"]
-            duration_seconds = route["duration"]
-            rec.distance = distance_meters/1000
-            rec.duration = duration_seconds
+            if departure_longitude and departure_latitude and destination_latitude and destination_longitude:
+                url2 = f"http://router.project-osrm.org/route/v1/driving/{departure_longitude},{departure_latitude};{destination_longitude},{destination_latitude}"
+                params = {"overview": "false"}
+                response = requests.get(url2, params=params)
+                data = response.json()
+                route = data["routes"][0]
+                distance_meters = route["distance"]
+                duration_seconds = route["duration"]
+                rec.distance = distance_meters/1000
+                rec.duration = duration_seconds
+            else:
+                rec.distance = 0
+                rec.duration = 0
