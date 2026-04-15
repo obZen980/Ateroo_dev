@@ -151,7 +151,7 @@
                             </div>
                             <div class="d-flex" >
                                     <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
-                                    <field name="include_package_price" invisible="customer_type not in ('e_commerce')"/>
+                                    <field name="include_package_price"/>
                                     <label for="include_package_price"/>
                             </div>
                             <div class="o_td_label">
@@ -159,7 +159,7 @@
                             </div>
                             <div class="d-flex">
                                 <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" />
-                                <field name="include_amount_distance" invisible="customer_type not in ('e_commerce')"/>
+                                <field name="include_amount_distance" />
                                 <label for="include_amount_distance"/>
                             </div>
                             <field name="currency_id" invisible="1"/>
