@@ -29,9 +29,26 @@ export class TrackingMap extends Component {
                     this.setAgencyMap();
                 }
             }
+            if(this.props.type == 'location'){
+                const lat = this.props.record.data.latitude || 0;
+                const lng = this.props.record.data.longitude || 0;
+                this.initMap(lat, lng);
+                this.map.on('click', (e) => {
+                    var lat = e.latlng.lat;
+                    var lng = e.latlng.lng;
+
+                    console.log("Clicked at:", lat, lng);
+                    if (this.marker) {
+                        this.map.removeLayer(this.marker);
+                    }
+                    this.props.record.update({ ['latitude']: lat });
+                    this.props.record.update({['longitude']: lng})
+
+                    this.marker = L.marker([lat, lng]).addTo(this.map);
+                });
+            }
             if(this.props.type == 'route'){
                 this.initMap(0,0);
-                console.log(this.props.record.data)
                 L.Routing.control({
                     waypoints: [
                         L.latLng(this.props.record.data['departure_latitude'], this.props.record.data['departure_longitude']),

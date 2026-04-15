@@ -1145,7 +1145,7 @@ msgstr "Clé secrète pour le code barre"
 #. module: ateroo_base
 #: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_form
 msgid "Sender"
-msgstr "Initiateur"
+msgstr "Expéditeur"
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__sequence
@@ -1199,7 +1199,7 @@ msgstr "Adresse du destinataire"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_street2
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__street2
 msgid "Street2"
-msgstr "Adresse 2 du destinataire"
+msgstr "Complément d'adresse"
 
 #. module: ateroo_base
 #: model:ir.ui.menu,name:ateroo_base.maneu_ateroo_tarif_zone

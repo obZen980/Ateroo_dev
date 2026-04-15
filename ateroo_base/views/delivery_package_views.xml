@@ -46,8 +46,8 @@
                             <field name="network" widget="radio" options="{'horizontal': True}" readonly="not inter_region_available" force_save="True"/>
                             <field name="to_retrieve" readonly="not inter_region_available" force_save="True"/>
                             <field name="cash_on_delivery"/>
-                            <field name="date"/>
-                            <field name="date_planned"/>
+                            <field name="date" invisible="not inter_region_available"/>
+                            <field name="date_planned" invisible="not inter_region_available"/>
                         </group>
                         <group>
 
@@ -62,29 +62,29 @@
                             <field name="city"/>
                         </group>
                         <group colspan="4">
-                            <field name="street" widget="osm_address_autocomplete"/>
-                            <field name="street2"/>
+                            <field name="street" widget="osm_address_autocomplete" required="True"/>
+                            <field name="street2" required="True"/>
                             <field name="landmark"/>
-                            <field name="region_id"/>
+                            <field name="region_id" options="{'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" required="True" />
                         </group>
                         <group colspan="4">
-                            <field name="agency_id" invisible="not inter_region_available"/>
+                            <field name="agency_id" invisible="not inter_region_available" domain="['|', ('region_id', '=', region_id), ('region_id', '=', False)]"/>
                         </group>
                         <label for="sender_note"/>
                         <field name="sender_note"/>
                     </group>
                     <group name="package_recipient" string="Recipient" col="12">
                         <group colspan="4">
-                            <field name="recipient_name"/>
+                            <field name="recipient_partner_id"/>
                             <field name="recipient_phone"/>
                             <field name="recipient_email"/>
                             <field name="recipient_city"/>
                         </group>
                         <group colspan="4">
-                            <field name="recipient_street" widget="osm_address_autocomplete" />
-                            <field name="recipient_street2"/>
+                            <field name="recipient_street" widget="osm_address_autocomplete" required="True"/>
+                            <field name="recipient_street2" required="True"/>
                             <field name="recipient_landmark"/>
-                            <field name="recipient_region_id"/>
+                            <field name="recipient_region_id" options="{'no_create_edit': True, 'no_quick_create': True, 'no_create': True}" required="True" />
                         </group>
                         <group colspan="4">
                             <field name="dest_agency_id" invisible="not inter_region_available or network == 'intra_urban'"/>
@@ -143,20 +143,33 @@
                         </group>
                         <group name="pricing" string="Pricing">
                             <field name="product_tmpl_id"/>
+                            <field name="pricelist_id" invisible="network != 'inter_region'"/>
                             <field name="customer_type" invisible="1"/>
-                            <field name="include_package_price" invisible="customer_type not in ('e_commerce')"/>
-                            <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" invisible="not include_package_price" />
-                            <field name="pricelist_id"/>
+                            <field name="amount_region" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" invisible="network != 'inter_region'"/>
+                            <div class="o_td_label">
+                                <label for="package_price"/>
+                            </div>
+                            <div class="d-flex" >
+                                    <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                    <field name="include_package_price" invisible="customer_type not in ('e_commerce')"/>
+                                    <label for="include_package_price"/>
+                            </div>
+                            <div class="o_td_label">
+                                <label for="amount_distance"/>
+                            </div>
+                            <div class="d-flex">
+                                <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" />
+                                <field name="include_amount_distance" invisible="customer_type not in ('e_commerce')"/>
+                                <label for="include_amount_distance"/>
+                            </div>
                             <field name="currency_id" invisible="1"/>
                             <separator/>
                             <div class="o_row">
                                 <label for="amount_total"/>
                                 <h2><field name="amount_total" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/></h2>
                             </div>
-
                         </group>
                     </group>
-
                     <notebook>
                         <page string="Operations">
                             <group>
@@ -171,25 +184,22 @@
                                     <field name="state" readonly="1"/>
                                     <field name="start_date" readonly="1"/>
                                     <field name="end_date" readonly="1"/>
+                                    <field name="distance"/>
                                     <field name="display_duration"/>
-<!--                                    <button name="action_start" type="object" string="Start" class="oe_highlight" invisible="state != 'none' or not (departure_id and destination_id)"/>-->
-<!--                                    <button name="action_done" type="object" string="End" class="oe_highlight" invisible="state != 'in_progress'"/>-->
                                 </list>
                             </field>
                             <separator/>
                             <field name="internal_picking_ids" readonly="state not in ('in_sort', 'ready', 'planned')" invisible="state not in ('in_sort', 'ready', 'planned')" context="{'default_type': 'internal'}">
                                 <list editable="bottom">
-                                    <field name="internal_domain" column_invisible="1"/>
                                     <field name="sequence" widget="handle"/>
                                     <field name="type"/>
-                                    <field name="departure_id" context="{'active_test': False}" domain="internal_domain"/>
-                                    <field name="destination_id" context="{'active_test': False}" domain="internal_domain"/>
+                                    <field name="departure_id" context="{'active_test': False}"/>
+                                    <field name="destination_id" context="{'active_test': False}"/>
                                     <field name="state" readonly="1"/>
                                     <field name="start_date" readonly="1"/>
                                     <field name="end_date" readonly="1"/>
+                                    <field name="distance"/>
                                     <field name="display_duration"/>
-<!--                                    <button name="action_start" type="object" string="Start" class="oe_highlight" invisible="state != 'none' or not (departure_id and destination_id)"/>-->
-<!--                                    <button name="action_done" type="object" string="End" class="oe_highlight" invisible="state != 'in_progress'"/>-->
                                 </list>
                             </field>
 

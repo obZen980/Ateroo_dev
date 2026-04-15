@@ -7,6 +7,7 @@
             <list>
                 <field name="display_name"/>
                 <field name="parent_id"/>
+                <field name="region_id"/>
                 <field name="zone_id" required="1"/>
 <!--                <field name="warehouse_id"/>-->
             </list>
@@ -21,19 +22,24 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="name"  nolabel="1"/>
+                            <field name="name"  nolabel="1" required="True"/>
                         </h1>
                     </div>
-                    <group>
-                        <group>
+                    <group col="12">
+                        <group colspan="6">
+                            <field name="id" invisible="1"/>
                             <field name="parent_id"/>
                             <field name="zone_id"/>
+                            <field name="region_id"/>
                         </group>
-                        <group>
-<!--                            <field name="warehouse_id"/>-->
-                            <field name="agency_longitude"/>
-                            <field name="agency_latitude"/>
+                        <group colspan="3">
+                            <div class="o_row" invisible="not id">
+                                <span>Location </span>
+                                <field name="agency_longitude"/>
+                                <field name="agency_latitude" widget="map_location" options="{'long_field': 'agency_longitude', 'lat_field': 'agency_latitude'}"/>
+                            </div>
                         </group>
+                        <group colspan="3"></group>
                     </group>
                 </sheet>
             </form>

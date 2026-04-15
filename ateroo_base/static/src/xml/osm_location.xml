@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="ateroo_base.Location">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span t-if="props.readonly" t-esc="formattedValue" />
+                <input
+                    t-else=""
+                    t-on-focusin="onFocusIn"
+                    t-on-focusout="onFocusOut"
+                    t-att-id="props.id"
+                    t-ref="numpadDecimal"
+                    t-att-placeholder="props.placeholder"
+                    t-att-type="props.inputType"
+                    inputmode="decimal"
+                    class="o_input"
+                    autocomplete="off"
+                    t-att-step="props.step" />
+                <img
+                    src="/ateroo_base/static/src/img/location.png"
+                    style="max-width: 15px;max-height: 15px;margin-right: 5px;margin-top: 3px;"
+                    t-on-click="displayOnMap"/>
+            </div>
+    </t>
+
+</templates>

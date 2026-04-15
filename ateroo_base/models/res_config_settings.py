@@ -10,6 +10,11 @@ class ResConfigSettings(models.TransientModel):
         config_parameter='ateroo_base.package.product',
         help='Used for invoicing delivery package'
     )
+    distance_pricelist_id = fields.Many2one(
+        'product.pricelist',
+        string='Pricelist for pricing per distance',
+        config_parameter='ateroo_base.pricelist.distance',
+    )
     secret_key = fields.Char(
         string='Secret key for barcode',
         config_parameter='ateroo_base.secret.key',
@@ -20,9 +25,12 @@ class ResConfigSettings(models.TransientModel):
         res = super(ResConfigSettings, self).get_values()
         IrConfigParameter = self.env['ir.config_parameter'].sudo()
         product = IrConfigParameter.get_param('ateroo_base.package.product')
+        pricelist = IrConfigParameter.get_param('ateroo_base.pricelist.distance')
         secret_key = IrConfigParameter.get_param('ateroo_base.secret.key')
         if product:
             res.update({'package_product_id': int(product)})
+        if pricelist:
+            res.update({'distance_pricelist_id': int(pricelist)})
         if secret_key:
             res.update({'secret_key': secret_key})
         return res
@@ -32,3 +40,4 @@ class ResConfigSettings(models.TransientModel):
         IrConfigParameter = self.env['ir.config_parameter'].sudo()
         IrConfigParameter.set_param("ateroo_base.package.product", self.package_product_id.id)
         IrConfigParameter.set_param("ateroo_base.secret.key", self.secret_key)
+        IrConfigParameter.set_param("ateroo_base.secret.key", self.distance_pricelist_id.id)

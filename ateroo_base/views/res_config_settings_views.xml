@@ -15,6 +15,11 @@
                                         <label for="package_product_id" string="Package Product" class="col-4 o_light_label"/>
                                         <field name="package_product_id" />
                                     </div>
+                                    <separator/>
+                                    <div>
+                                        <label for="distance_pricelist_id" string="Distance pricelist" class="col-4 o_light_label"/>
+                                        <field name="distance_pricelist_id" />
+                                    </div>
                                 </div>
                             </div>
                         </setting>

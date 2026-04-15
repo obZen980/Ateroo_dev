@@ -70,7 +70,7 @@ class DeliveryTour(models.Model):
                 'customer_street2': package.street2 or '',
                 'customer_landmark': package.landmark or '',
                 'departure': pick.departure_id and pick.departure_id.name or '',
-                'recipient_name': package.recipient_name or '',
+                'recipient_name': package.recipient_partner_id.name or '',
                 'recipient_phone': package.recipient_phone or '',
                 'recipient_email': package.recipient_email or '',
                 'recipient_city': package.recipient_city or '',

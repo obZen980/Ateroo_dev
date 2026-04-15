@@ -1,3 +1,4 @@
+import requests
 from odoo import models, fields, api
 
 
@@ -13,17 +14,9 @@ class DeliveryPicking(models.Model):
     start_date = fields.Datetime('Start Date')
     end_date = fields.Datetime('End date')
     state = fields.Selection([('none', 'None'), ('in_progress', 'In progress'), ('done', 'Done')], string='State', default='none')
-    duration = fields.Float(compute='_compute_duration', store=True)
+    duration = fields.Float(compute='_compute_road_distance', string='Estimated duration', store=True)
     display_duration = fields.Char(compute='_compute_display_duration')
-    internal_domain = fields.Char(compute='_compute_internal_domain')
-
-    @api.depends('start_date', 'end_date')
-    def _compute_duration(self):
-        for rec in self:
-            if rec.start_date and rec.end_date:
-                rec.duration = (rec.end_date - rec.start_date).total_seconds()
-            else:
-                rec.duration = 0
+    distance = fields.Float(compute='_compute_road_distance', string='Distance (km)', store=True)
 
     def _compute_display_duration(self):
         for rec in self:
@@ -59,9 +52,52 @@ class DeliveryPicking(models.Model):
             self.package_id.action_delivered()
         return True
 
-    def _compute_internal_domain(self):
+    import requests
+
+    @api.depends(
+        'departure_id',
+        'destination_id',
+        'departure_id.agency_longitude',
+        'departure_id.agency_latitude',
+        'destination_id.agency_longitude',
+        'destination_id.agency_latitude',
+    )
+    def _compute_road_distance(self):
         for rec in self:
-            if rec.package_id.agency_id:
-                rec.internal_domain = [('id', 'child_of', rec.package_id.agency_id.id)]
+            departure_longitude = False
+            departure_latitude = False
+            destination_longitude = False
+            destination_latitude = False
+            url = "https://nominatim.openstreetmap.org/search"
+            if rec.departure_id == self.env.ref('ateroo_data.customer_location'):
+                params = {"q": rec.package_id.street, "format": "json", "limit": 1}
+                headers = {"User-Agent": "odoo-map-widget"}
+                response = requests.get(url, params=params, headers=headers)
+                if str(response.status_code).startswith('2'):
+                    result = response.json()
+                    departure_latitude = result[0]['lat']
+                    departure_longitude = result[0]['lon']
             else:
-                rec.internal_domain = []
+                departure_latitude = rec.departure_id.agency_latitude
+                departure_longitude = rec.departure_id.agency_longitude
+            if rec.destination_id == self.env.ref('ateroo_data.customer_destination'):
+                params = {"q": rec.package_id.recipient_street, "format": "json", "limit": 1}
+                headers = {"User-Agent": "odoo-map-widget"}
+                response = requests.get(url, params=params, headers=headers)
+                if str(response.status_code).startswith('2'):
+                    result = response.json()
+                    destination_latitude = result[0]['lat']
+                    destination_longitude = result[0]['lon']
+            else:
+                destination_latitude = rec.destination_id.agency_latitude
+                destination_longitude = rec.destination_id.agency_longitude
+
+            url2 = f"http://router.project-osrm.org/route/v1/driving/{departure_longitude},{departure_latitude};{destination_longitude},{destination_latitude}"
+            params = {"overview": "false"}
+            response = requests.get(url2, params=params)
+            data = response.json()
+            route = data["routes"][0]
+            distance_meters = route["distance"]
+            duration_seconds = route["duration"]
+            rec.distance = distance_meters/1000
+            rec.duration = duration_seconds

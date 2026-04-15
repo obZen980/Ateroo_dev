@@ -12,6 +12,7 @@ class DeliveryAgency(models.Model):
     active = fields.Boolean('Active', default=True)
     display_name = fields.Char(string='Display Name', compute='_compute_display_name', stored=True)
     parent_id = fields.Many2one('delivery.agency', 'Parent Agency')
+    region_id = fields.Many2one('res.region', string='Region')
     child_ids = fields.One2many('delivery.agency', 'parent_id', ondelete='cascade')
     warehouse_id = fields.Many2one('stock.warehouse', 'Warehouse')
     agency_latitude = fields.Float('Latitude', digits=(10, 7))

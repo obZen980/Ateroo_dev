@@ -13,11 +13,16 @@
                         <field name="departure_longitude" invisible="1"/>
                         <field name="destination_latitude" invisible="1"/>
                         <field name="destination_longitude" invisible="1"/>
+                        <field name="latitude" invisible="1"/>
+                        <field name="longitude" invisible="1"/>
+                        <field name="agency_id" invisible="1"/>
                         <field name="address" widget="tracking_map" options="{'type': 'address'}" invisible="not address"/>
                         <field name="address" widget="tracking_map" options="{'type': 'route'}" invisible="not pick_id"/>
+                        <field name="address" widget="tracking_map" options="{'type': 'location'}" invisible="not agency_id"/>
                     </div>
                 </sheet>
                 <footer>
+                    <button name="save" type="object" class="oe_highlight" string="Save" invisible="not agency_id"/>
                     <button string="Close" class="btn-secondary" special="cancel" data-hotkey="x"/>
                 </footer>
             </form>

@@ -73,5 +73,23 @@
                 }]"
             />
         </function>
+        <record id="product_distance" model="product.template">
+            <field name="name">Distance</field>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="type">consu</field>
+            <field name="uom_id" ref="uom.product_uom_km"/>
+            <field name="uom_po_id" ref="uom.product_uom_km"/>
+            <field name="taxes_id" eval="[(6, 0, [])]"/>
+        </record>
+        <function model="ir.model.data" name="_update_xmlids">
+            <value
+                model="base"
+                eval="[{
+                    'xml_id': 'ateroo_data.package_product_4',
+                    'record': obj().env.ref('ateroo_data.package_product_smartphone').product_variant_id,
+                    'noupdate': True,
+                }]"
+            />
+        </function>
     </data>
 </odoo>

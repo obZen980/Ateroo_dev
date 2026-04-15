@@ -56,7 +56,9 @@
             'ateroo_base/static/src/js/ateroo_kanban_dashboard.js',
             'ateroo_base/static/src/js/ateroo_kanban_graph.js',
             'ateroo_base/static/src/xml/ateroo_tour_list.xml',
-            'ateroo_base/static/src/js/ateroo_tour_list.js'
+            'ateroo_base/static/src/js/ateroo_tour_list.js',
+            'ateroo_base/static/src/xml/osm_location.xml',
+            'ateroo_base/static/src/js/osm_point_location.js',
         ],
     }
 

@@ -7,12 +7,27 @@ class WizardMap(models.TransientModel):
     _inherit = 'map.tracking.mixin'
     _description = 'wizard.map'
 
+    @api.model
+    def _default_agency(self):
+        if self.env.context.get('model', False) == 'delivery.agency' and self.env.context.get('record_id', False):
+            return self.env['delivery.agency'].browse(self.env.context['record_id'])
+        return False
+
     address = fields.Char()
     departure_latitude = fields.Float()
     departure_longitude = fields.Float()
     destination_latitude = fields.Float()
     destination_longitude = fields.Float()
+    latitude = fields.Float()
+    longitude = fields.Float()
+    agency_id = fields.Many2one('delivery.agency', default=_default_agency)
     pick_id = fields.Many2one('delivery.picking')
+
+    @api.onchange('agency_id')
+    def onchange_agency_id(self):
+        if self.agency_id:
+            self.latitude = self.agency_id.agency_latitude
+            self.longitude = self.agency_id.agency_longitude
 
     @api.onchange('pick_id')
     def onchange_pick(self):
@@ -41,4 +56,11 @@ class WizardMap(models.TransientModel):
             self.destination_latitude = self.pick_id.destination_id.agency_latitude
             self.destination_longitude = self.pick_id.destination_id.agency_longitude
 
-
+    def save(self):
+        if self._context.get('model') and self._context.get('record_id') and self._context.get('long_field') and self._context.get('lat_field'):
+            record = self.env[self._context.get('model')].browse(self._context['record_id'])
+            record.write({
+                self._context['long_field']: self.longitude,
+                self._context['lat_field']: self.latitude
+            })
+        return {'type': 'ir.actions.client', 'tag': 'soft_reload'}

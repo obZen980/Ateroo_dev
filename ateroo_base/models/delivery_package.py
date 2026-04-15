@@ -21,7 +21,11 @@ STATES = [
 PARTNER_ADDRESS_FIELDS_TO_SYNC = [
     'street',
     'street2',
+    'phone',
+    'email',
     'city',
+    'landmark',
+    'region_id'
 ]
 
 
@@ -51,22 +55,22 @@ class DeliveryPackage(models.Model):
         ('e_commerce', 'E-commerce'),
         ('company', 'Company')], related='partner_id.ateroo_customer_type')
     sender_name = fields.Char('Name', tracking=True)
-    phone = fields.Char('Phone', tracking=True)
-    email = fields.Char('Email')
-    city = fields.Char('City')
-    street = fields.Char('Street', compute='_compute_partner_address_values', readonly=False, store=True)
-    street2 = fields.Char('Street2', compute='_compute_partner_address_values', readonly=False, store=True)
-    landmark = fields.Char('Landmark')
-    region_id = fields.Many2one('res.region', string='Region')
+    phone = fields.Char('Phone', tracking=True, compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    email = fields.Char('Email', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    city = fields.Char('City', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    street = fields.Char('Street', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    street2 = fields.Char('Street2', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    landmark = fields.Char('Landmark', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
+    region_id = fields.Many2one('res.region', string='Region', compute='_compute_partner_address_values', inverse='_set_partner_address', readonly=False, store=True)
     sender_note = fields.Text('Note')
-    recipient_name = fields.Char('Name')
-    recipient_phone = fields.Char('Phone', tracking=True)
-    recipient_email = fields.Char('Email')
-    recipient_city = fields.Char('City', tracking=True)
-    recipient_street = fields.Char('Street', tracking=True)
-    recipient_street2 = fields.Char('Street2')
-    recipient_landmark = fields.Char('Landmark')
-    recipient_region_id = fields.Many2one('res.region', string='Region')
+    recipient_partner_id = fields.Many2one('res.partner', 'Recipient', tracking=True)
+    recipient_phone = fields.Char('Phone', tracking=True, compute='_compute_recipient_partner_address_values', inverse='_set_partner_recipient_address', readonly=False, store=True)
+    recipient_email = fields.Char('Email', compute='_compute_recipient_partner_address_values', inverse='_set_partner_recipient_address',  readonly=False, store=True)
+    recipient_city = fields.Char('City', compute='_compute_recipient_partner_address_values', inverse='_set_partner_recipient_address', readonly=False, store=True, tracking=True)
+    recipient_street = fields.Char('Street', compute='_compute_recipient_partner_address_values',  inverse='_set_partner_recipient_address', readonly=False, store=True, tracking=True)
+    recipient_street2 = fields.Char('Street2', compute='_compute_recipient_partner_address_values',  inverse='_set_partner_recipient_address', readonly=False, store=True)
+    recipient_landmark = fields.Char('Landmark', compute='_compute_recipient_partner_address_values',  inverse='_set_partner_recipient_address', readonly=False, store=True)
+    recipient_region_id = fields.Many2one('res.region', string='Region', compute='_compute_recipient_partner_address_values',  inverse='_set_partner_recipient_address', readonly=False, store=True)
     recipient_note = fields.Text('Note')
 
     state = fields.Selection(STATES, string='State', default='draft', tracking=True)
@@ -74,7 +78,7 @@ class DeliveryPackage(models.Model):
     date = fields.Datetime('Delivery date', tracking=True)
     date_planned = fields.Datetime('Delivery date planned', tracing=True)
 
-    weight = fields.Float('Weight', tracking=True, required=True)
+    weight = fields.Float('Weight', tracking=True, required=True, default=0.5)
     height = fields.Float('Height', tracking=True)
     width = fields.Float('Width', tracking=True)
     length = fields.Float('Length', tracking=True)
@@ -82,20 +86,28 @@ class DeliveryPackage(models.Model):
     volume = fields.Float('Volume', compute='_compute_volume', store=True)
     volumetric_weight = fields.Float('Volumetric weight', compute='compute_volumetric_weight')
 
+    package_price = fields.Float('Package price', default=0.0)
+    include_package_price = fields.Boolean('Inclure le prix du colis')
     amount_total = fields.Float('Amount total', compute='_compute_amount_total', store=True)
+    amount_distance = fields.Float('Amount per distance', compute='_compute_amount_per_distance', store=True, readonly=False)
+    amount_region = fields.Float('Amount inter region', compute='_compute_amount_region', store=True, readonly=False)
+    include_amount_distance = fields.Boolean('Include distance amount?')
+    pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
+    product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
+
+    currency_id = fields.Many2one('res.currency', compute='_compute_currency')
+
     image_2 = fields.Image("Image", max_width=1920, max_height=1920)
     image_3 = fields.Image("Image", max_width=1920, max_height=1920)
     image_4 = fields.Image("Image", max_width=1920, max_height=1920)
     image_selector = fields.Image("Image", max_width=1920, max_height=1920)
+
     barcode = fields.Char("Barcode data", copy=False)
     token = fields.Char("Token", copy=False)
-    pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
-    product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
-    include_package_price = fields.Boolean('Inclure le prix du colis')
-    package_price = fields.Float('Package price', default=0.0)
-    currency_id = fields.Many2one('res.currency',  compute='_compute_currency')
+
     invoice_ids = fields.Many2many('account.move', 'package_id', 'move_id', string='Invoices')
     invoice_count = fields.Integer('Invoice count', compute='_compute_invoice_count')
+
     current_location_id = fields.Many2one('delivery.agency', compute='_compute_current_location', tracking=True, string='Current location', store=True)
     delivery_picking_ids = fields.One2many('delivery.picking', 'package_id', ondelete='cascade', string='Routes', domain=[('type', '=', 'delivery')])
     internal_picking_ids = fields.One2many('delivery.picking', 'package_id', ondelete='cascade', string='Internal operations', domain=[('type', '=', 'internal')])
@@ -151,7 +163,24 @@ class DeliveryPackage(models.Model):
     @api.depends('partner_id')
     def _compute_partner_address_values(self):
         for rec in self:
-            rec.update(rec._prepare_address_values_from_partner(rec.partner_id))
+            rec.update(rec._prepare_address_values_from_partner(rec.partner_id, 'sender'))
+
+    def _set_partner_address(self):
+        for rec in self:
+            for f in PARTNER_ADDRESS_FIELDS_TO_SYNC:
+                if not rec.partner_id[f] and rec[f]:
+                    rec.partner_id[f] = rec[f]
+
+    @api.depends('recipient_partner_id')
+    def _compute_recipient_partner_address_values(self):
+        for rec in self:
+            rec.update(rec._prepare_address_values_from_partner(rec.recipient_partner_id, 'recipient'))
+
+    def _set_partner_recipient_address(self):
+        for rec in self:
+            for f in PARTNER_ADDRESS_FIELDS_TO_SYNC:
+                if not rec.partner_id[f] and rec['recipient_'+f]:
+                    rec.recipient_partner_id['recipient_' + f] = rec[f]
 
     @api.depends('width', 'height', 'length')
     def _compute_display_size(self):
@@ -174,15 +203,44 @@ class DeliveryPackage(models.Model):
             weight_volume = rec.volume / 5000
             rec.volumetric_weight = rec.weight if rec.weight >= weight_volume else weight_volume
 
-    @api.depends('weight', 'volume', 'package_price', 'pricelist_id')
+    @api.depends('amount_distance', 'amount_region', 'package_price', 'include_package_price', 'include_amount_distance')
     def _compute_amount_total(self):
         for rec in self:
+            amount_total = 0
+            if rec.include_amount_distance:
+                amount_total += rec.amount_distance
+            if rec.include_package_price:
+                amount_total += rec.package_price
+            if rec.amount_region:
+                amount_total += rec.amount_region
+            rec.amount_total = amount_total
+
+    @api.depends('delivery_picking_ids.distance')
+    def _compute_amount_per_distance(self):
+        pricelist = self.env['ir.config_parameter'].get_param('ateroo_base.pricelist.distance')
+        pricelist = pricelist and self.env['product.pricelist'].browse(int(pricelist)) or False
+        product_distance = self.env.ref('ateroo_data.product_distance', raise_if_not_found=False)
+        for rec in self:
+            if rec.delivery_picking_ids and pricelist and product_distance:
+                delivery_pickings = rec.delivery_picking_ids.filtered(lambda pick: pick.departure_id != rec.agency_id and pick.destination_id != rec.dest_agency_id)
+                distance = sum(delivery_pickings.mapped('distance'))
+                price_unit = pricelist._get_product_price(product_distance, distance, product_distance.uom_id)
+                rec.amount_distance = float_round(price_unit * distance, precision_digits=0)
+            else:
+                rec.amount_distance = 0
+
+    @api.depends('weight', 'volume', 'package_price', 'pricelist_id', 'agency_id', 'dest_agency_id', 'network')
+    def _compute_amount_region(self):
+        for rec in self:
             delivery_price = 0
+            if rec.network != 'inter_region':
+                rec.amount_region = 0
+                continue
             if rec.product_tmpl_id:
                 quantity = rec.volumetric_weight
                 price_unit = rec.pricelist_id._get_product_price(rec.product_tmpl_id.product_variant_id, quantity, rec.product_tmpl_id.uom_id)
                 delivery_price = float_round(price_unit * quantity, precision_digits=0)
-            rec.amount_total = delivery_price + rec.package_price
+            rec.amount_region = delivery_price
 
     def _compute_invoice_count(self):
         for rec in self:
@@ -194,12 +252,19 @@ class DeliveryPackage(models.Model):
             if not rec.weight or rec.weight <= 0:
                 raise UserError(_('Weight should be above 0.'))
 
-    def _prepare_address_values_from_partner(self, partner):
-        if any(partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC):
-            values = {f: partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
-        else:
-            values = {f: self[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
-        return values
+    def _prepare_address_values_from_partner(self, partner, partner_type='sender'):
+        if partner_type == 'sender':
+            if any(partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC):
+                values = {f: partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
+            else:
+                values = {f: self[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
+            return values
+        elif partner_type == 'recipient':
+            if any(partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC):
+                values = {'recipient_' + f: partner[f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
+            else:
+                values = {'recipient_' + f: self['recipient_' + f] for f in PARTNER_ADDRESS_FIELDS_TO_SYNC}
+            return values
 
     def set_sequence(self):
         self.ensure_one()
@@ -340,6 +405,8 @@ class DeliveryPackage(models.Model):
         quantity = self.volumetric_weight
         package_product = self.env['ir.config_parameter'].sudo().get_param('ateroo_base.package.product')
         package_product = package_product and self.env['product.product'].browse(int(package_product)) or False
+        product_distance = self.env.ref('ateroo_data.product_distance', raise_if_not_found=False)
+        product_distance = product_distance and self.env['product.product'].browse(int(product_distance)) or False
         price = self.pricelist_id._get_product_price(self.product_tmpl_id.product_variant_id, quantity, self.product_tmpl_id.uom_id)
         vals = list()
         vals.append((0, 0, {
@@ -355,6 +422,14 @@ class DeliveryPackage(models.Model):
                 'quantity': 1,
                 'product_uom_id': package_product.uom_id.id,
                 'price_unit': self.package_price
+            }))
+        if self.amount_distance and self.include_amount_distance and product_distance:
+            vals.append((0, 0, {
+                'product_id': product_distance.id,
+                'name': self.name,
+                'quantity': 1,
+                'product_uom_id': product_distance.uom_id.id,
+                'price_unit': self.amount_distance
             }))
         return vals
 

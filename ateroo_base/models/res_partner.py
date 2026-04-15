@@ -9,3 +9,5 @@ class ResPartner(models.Model):
         ('e_commerce', 'E-commerce'),
         ('company', 'Company')], string='Customer Type'
     )
+    landmark = fields.Char('Landamark')
+    region_id = fields.Many2one('res.region', string='Region')
