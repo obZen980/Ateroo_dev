@@ -94,6 +94,8 @@ class DeliveryPackage(models.Model):
     amount_region = fields.Float('Amount inter region', compute='_compute_amount_region', store=True, readonly=False)
     include_amount_distance = fields.Boolean('Include distance amount?')
     pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
+    distance_pricelist_id = fields.Many2one('product.pricelist', string='Pricelist for pricing per distance',
+                                            default=lambda self: int(self.env['ir.config_parameter'].get_param('ateroo_base.pricelist.distance')))
     product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
 
     currency_id = fields.Many2one('res.currency', compute='_compute_currency')
@@ -216,16 +218,17 @@ class DeliveryPackage(models.Model):
                 amount_total += rec.amount_region
             rec.amount_total = amount_total
 
-    @api.depends('delivery_picking_ids.distance')
+    @api.depends('delivery_picking_ids.distance', 'distance_pricelist_id')
     def _compute_amount_per_distance(self):
         pricelist = self.env['ir.config_parameter'].get_param('ateroo_base.pricelist.distance')
         pricelist = pricelist and self.env['product.pricelist'].browse(int(pricelist)) or False
         product_distance = self.env.ref('ateroo_data.product_distance', raise_if_not_found=False)
         for rec in self:
-            if rec.delivery_picking_ids and pricelist and product_distance:
+            distance_pricelist = rec.distance_pricelist_id or pricelist
+            if rec.delivery_picking_ids and distance_pricelist and product_distance:
                 delivery_pickings = rec.delivery_picking_ids.filtered(lambda pick: pick.departure_id != rec.agency_id and pick.destination_id != rec.dest_agency_id)
                 distance = sum(delivery_pickings.mapped('distance'))
-                price_unit = pricelist._get_product_price(product_distance, distance, product_distance.uom_id)
+                price_unit = distance_pricelist._get_product_price(product_distance, distance, product_distance.uom_id)
                 rec.amount_distance = float_round(price_unit * distance, precision_digits=0)
             else:
                 rec.amount_distance = 0

@@ -128,7 +128,7 @@ msgstr "Montant inter-région"
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_distance
 msgid "Amount per distance"
-msgstr "Montant pour la distance"
+msgstr "Montant par distance"
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_total
@@ -1060,7 +1060,7 @@ msgstr "Coefficient de prix"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__pricelist_id
 #: model:ir.ui.menu,name:ateroo_base.manu_ateroo_pricelist
 msgid "Pricelist"
-msgstr "Liste de prix"
+msgstr "Liste de prix inter-région"
 
 #. module: ateroo_base
 #: model:ir.model,name:ateroo_base.model_product_pricelist_item
@@ -1397,3 +1397,9 @@ msgstr "Etat"
 #: model:ir.model,name:ateroo_base.model_wizard_map
 msgid "wizard.map"
 msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__distance_pricelist_id
+#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__distance_pricelist_id
+msgid "Pricelist for pricing per distance"
+msgstr "Liste de prix par distance"
