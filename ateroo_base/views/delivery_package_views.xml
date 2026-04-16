@@ -43,7 +43,14 @@
                     <group name="options" string="Parameter">
                         <group>
                             <field name="delivery_method_id"/>
-                            <field name="network" widget="radio" options="{'horizontal': True}" readonly="not inter_region_available" force_save="True"/>
+                            <div class="o_td_label">
+                                <label for="network"/>
+                            </div>
+                            <div class="d-flex">
+                                    <field name="network" widget="radio" options="{'horizontal': True}" readonly="not inter_region_available" force_save="True"/>
+                                    <label for="city_id"  invisible="network != 'intra_urban'"/>
+                                    <field name="city_id"  invisible="network != 'intra_urban'" style="padding: 0px 20px 30px 20px;"/>
+                            </div>
                             <field name="to_retrieve" readonly="not inter_region_available" force_save="True"/>
                             <field name="cash_on_delivery"/>
                             <field name="date" invisible="not inter_region_available"/>
@@ -150,15 +157,15 @@
                                 <label for="package_price"/>
                             </div>
                             <div class="d-flex" >
-                                    <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
-                                    <field name="include_package_price"/>
+                                    <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:350px"/>
+                                    <field name="include_package_price" />
                                     <label for="include_package_price"/>
                             </div>
                             <div class="o_td_label">
                                 <label for="amount_distance"/>
                             </div>
                             <div class="d-flex">
-                                <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" />
+                                <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:400px" />
                                 <field name="include_amount_distance" />
                                 <label for="include_amount_distance"/>
                             </div>

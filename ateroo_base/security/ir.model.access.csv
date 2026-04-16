@@ -29,3 +29,6 @@ access_delivery_tour_admin,access_delivery_tour.admin,ateroo_base.model_delivery
 access_res_region_read,access_res_region.read,ateroo_base.model_res_region,,1,0,0,0
 access_res_region_user,access_res_region.user,ateroo_base.model_res_region,base.group_user,1,1,1,0
 access_res_region_admin,access_res_region.admin,ateroo_base.model_res_region,base.group_system,1,1,1,1
+access_res_city_read,access_res_city.read,ateroo_base.model_res_city,,1,0,0,0
+access_res_city_user,access_res_city.user,ateroo_base.model_res_city,base.group_user,1,1,1,0
+access_res_city_admin,access_res_city.admin,ateroo_base.model_res_city,base.group_system,1,1,1,1

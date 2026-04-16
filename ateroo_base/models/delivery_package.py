@@ -43,6 +43,7 @@ class DeliveryPackage(models.Model):
     sequence = fields.Char('Sequence', copy=False)
     network = fields.Selection([('intra_urban', 'Intra urban'), ('inter_region', 'Inter Region')], string='Network', default='intra_urban')
     inter_region_available = fields.Boolean(related='delivery_method_id.inter_region_available')
+    city_id = fields.Many2one('res.city', 'Ville')
 
     agency_id = fields.Many2one('delivery.agency', 'Origin agency', domain=[('parent_id', '=', False)], tracking=True)
     deposit_id = fields.Many2one('delivery.agency', 'Deposit center', domain="[('id', 'child_of', agency_id)]")
@@ -168,7 +169,7 @@ class DeliveryPackage(models.Model):
     def _set_partner_address(self):
         for rec in self:
             for f in PARTNER_ADDRESS_FIELDS_TO_SYNC:
-                if not rec.partner_id[f] and rec[f]:
+                if rec.partner_id and not rec.partner_id[f] and rec[f]:
                     rec.partner_id[f] = rec[f]
 
     @api.depends('recipient_partner_id')
@@ -179,8 +180,8 @@ class DeliveryPackage(models.Model):
     def _set_partner_recipient_address(self):
         for rec in self:
             for f in PARTNER_ADDRESS_FIELDS_TO_SYNC:
-                if not rec.partner_id[f] and rec['recipient_'+f]:
-                    rec.recipient_partner_id['recipient_' + f] = rec[f]
+                if rec.recipient_partner_id and not rec.recipient_partner_id[f] and rec['recipient_'+f]:
+                    rec.recipient_partner_id[f] = rec['recipient_' + f]
 
     @api.depends('width', 'height', 'length')
     def _compute_display_size(self):

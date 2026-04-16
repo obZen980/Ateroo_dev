@@ -97,5 +97,19 @@
                 action="ateroo_base.ateroo_product_pricelist_action"
                 sequence="5"
                 />
+     <menuitem
+                id="manu_ateroo_region"
+                name="Région"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_res_region"
+                sequence="6"
+                />
+     <menuitem
+                id="manu_ateroo_city"
+                name="Ville"
+                parent="menu_ateroo_configuration"
+                action="ateroo_base.action_res_city"
+                sequence="7"
+                />
 
 </odoo>

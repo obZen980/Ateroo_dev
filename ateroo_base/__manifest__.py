@@ -34,6 +34,8 @@
         'views/res_config_settings_views.xml',
         'views/product_pricelist_views.xml',
         'views/delivery_tour_views.xml',
+        'views/res_city_views.xml',
+        'views/res_region_views.xml',
         'wizard/wizard_map_views.xml',
         'report/delivery_package_label.xml',
         'report/delivery_package_label_action.xml',
