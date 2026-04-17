@@ -280,7 +280,7 @@
     </record>
 
     <record id="action_delivery_package" model="ir.actions.act_window">
-        <field name="name">Dashboard</field>
+        <field name="name">Delivery package</field>
         <field name="res_model">delivery.package</field>
         <field name="view_mode">list,form</field>
     </record>

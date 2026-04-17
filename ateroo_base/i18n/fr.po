@@ -285,7 +285,6 @@ msgstr "Type de client"
 #. module: ateroo_base
 #: model:ir.actions.act_window,name:ateroo_base.action_delivery_agency
 #: model:ir.actions.act_window,name:ateroo_base.action_delivery_agency_dashboard
-#: model:ir.actions.act_window,name:ateroo_base.action_delivery_package
 #: model:ir.ui.menu,name:ateroo_base.menu_ateroo_main_dashboard
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -365,6 +364,7 @@ msgstr "Mode de livraison"
 #: code:addons/ateroo_base/models/delivery_agency.py:0
 #: model:ir.model,name:ateroo_base.model_delivery_package
 #: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_package
 msgid "Delivery package"
 msgstr "Colis"
 
