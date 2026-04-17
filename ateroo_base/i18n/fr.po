@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-15 14:48+0000\n"
-"PO-Revision-Date: 2026-04-15 14:48+0000\n"
+"POT-Creation-Date: 2026-04-17 17:04+0000\n"
+"PO-Revision-Date: 2026-04-17 17:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -128,7 +128,7 @@ msgstr "Montant inter-région"
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_distance
 msgid "Amount per distance"
-msgstr "Montant par distance"
+msgstr "Montant par km"
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_total
@@ -168,6 +168,7 @@ msgid "Child"
 msgstr "Dépôt"
 
 #. module: ateroo_base
+#: model:ir.model,name:ateroo_base.model_res_city
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__city
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__recipient_city
 msgid "City"
@@ -238,6 +239,7 @@ msgstr "Créer une facture"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__create_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__create_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__create_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__create_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__create_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__create_uid
 msgid "Created by"
@@ -252,6 +254,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__create_date
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__create_date
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__create_date
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__create_date
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__create_date
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__create_date
 msgid "Created on"
@@ -288,6 +291,11 @@ msgstr "Type de client"
 #: model:ir.ui.menu,name:ateroo_base.menu_ateroo_main_dashboard
 msgid "Dashboard"
 msgstr "Tableau de bord"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__default_pricelist_id
+msgid "Default pricelist for pricing"
+msgstr ""
 
 #. module: ateroo_base
 #: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_package__state__delivered
@@ -362,9 +370,9 @@ msgstr "Mode de livraison"
 #. module: ateroo_base
 #. odoo-python
 #: code:addons/ateroo_base/models/delivery_agency.py:0
+#: model:ir.actions.act_window,name:ateroo_base.action_delivery_package
 #: model:ir.model,name:ateroo_base.model_delivery_package
 #: model_terms:ir.ui.view,arch_db:ateroo_base.delivery_package_search
-#: model:ir.actions.act_window,name:ateroo_base.action_delivery_package
 msgid "Delivery package"
 msgstr "Colis"
 
@@ -482,6 +490,7 @@ msgstr "Durrée"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__display_name
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__display_name
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__display_name
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__display_name
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__display_name
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__display_name
 msgid "Display Name"
@@ -491,11 +500,6 @@ msgstr "Nom d'affichage"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_picking__distance
 msgid "Distance (km)"
 msgstr ""
-
-#. module: ateroo_base
-#: model_terms:ir.ui.view,arch_db:ateroo_base.res_config_settings_ateroo
-msgid "Distance pricelist"
-msgstr "Liste de prix par distance"
 
 #. module: ateroo_base
 #: model:ir.model.fields.selection,name:ateroo_base.selection__delivery_picking__state__done
@@ -591,6 +595,7 @@ msgstr "Hauteur"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__id
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__id
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__id
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__id
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__id
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__id
 msgid "ID"
@@ -672,6 +677,16 @@ msgstr "En triage"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__include_amount_distance
 msgid "Include distance amount?"
 msgstr "Inclure le montant par distance"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__include_amount_default
+msgid "Include le prix par défaut?"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__include_amount_region
+msgid "Inclure le montant par région"
+msgstr ""
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__include_package_price
@@ -782,6 +797,7 @@ msgstr "Point de repère"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__write_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__write_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__write_uid
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__write_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__write_uid
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__write_uid
 msgid "Last Updated by"
@@ -796,6 +812,7 @@ msgstr "Dernière mise à jour par"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__write_date
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__write_date
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__write_date
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__write_date
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__write_date
 #: model:ir.model.fields,field_description:ateroo_base.field_wizard_map__write_date
 msgid "Last Updated on"
@@ -814,6 +831,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__length
 msgid "Length"
 msgstr "Longueur"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__pricelist_id
+msgid "Liste de prix inter-région"
+msgstr "Liste de prix inter-région"
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__default_pricelist_id
+msgid "Liste de prix par défaut"
+msgstr ""
+
+#. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__distance_pricelist_id
+msgid "Liste de prix par km"
+msgstr "Liste de prix par km"
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_agency__agency_longitude
@@ -852,6 +884,11 @@ msgid "Messages"
 msgstr ""
 
 #. module: ateroo_base
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__amount_default
+msgid "Montant par défaut"
+msgstr ""
+
+#. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr ""
@@ -864,6 +901,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tarif_zone__name
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_tour__name
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_transport__name
+#: model:ir.model.fields,field_description:ateroo_base.field_res_city__name
 #: model:ir.model.fields,field_description:ateroo_base.field_res_region__name
 msgid "Name"
 msgstr "Nom"
@@ -1057,9 +1095,6 @@ msgstr "Coefficient de prix"
 
 #. module: ateroo_base
 #: model:ir.model,name:ateroo_base.model_product_pricelist
-#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__pricelist_id
-
-#. module: ateroo_base
 #: model:ir.ui.menu,name:ateroo_base.manu_ateroo_pricelist
 msgid "Pricelist"
 msgstr "Liste de prix"
@@ -1068,11 +1103,6 @@ msgstr "Liste de prix"
 #: model:ir.model,name:ateroo_base.model_product_pricelist_item
 msgid "Pricelist Rule"
 msgstr "Règle des listes des prix"
-
-#. module: ateroo_base
-#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__distance_pricelist_id
-msgid "Pricelist for pricing per distance"
-msgstr ""
 
 #. module: ateroo_base
 #: model:ir.actions.act_window,name:ateroo_base.ateroo_product_pricelist_action
@@ -1150,6 +1180,12 @@ msgstr "Récupération"
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__delivery_picking_ids
 msgid "Routes"
 msgstr "Trajets"
+
+#. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_res_region
+#: model:ir.ui.menu,name:ateroo_base.manu_ateroo_region
+msgid "Région"
+msgstr ""
 
 #. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__message_has_sms_error
@@ -1319,6 +1355,13 @@ msgid "Vehicle"
 msgstr "Véhicule"
 
 #. module: ateroo_base
+#: model:ir.actions.act_window,name:ateroo_base.action_res_city
+#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__city_id
+#: model:ir.ui.menu,name:ateroo_base.manu_ateroo_city
+msgid "Ville"
+msgstr ""
+
+#. module: ateroo_base
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__volume
 msgid "Volume"
 msgstr ""
@@ -1399,9 +1442,3 @@ msgstr "Etat"
 #: model:ir.model,name:ateroo_base.model_wizard_map
 msgid "wizard.map"
 msgstr ""
-
-#. module: ateroo_base
-#: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__distance_pricelist_id
-#: model:ir.model.fields,field_description:ateroo_base.field_res_config_settings__distance_pricelist_id
-msgid "Pricelist for pricing per distance"
-msgstr "Liste de prix par distance"

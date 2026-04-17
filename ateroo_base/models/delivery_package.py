@@ -87,14 +87,18 @@ class DeliveryPackage(models.Model):
     volume = fields.Float('Volume', compute='_compute_volume', store=True)
     volumetric_weight = fields.Float('Volumetric weight', compute='compute_volumetric_weight')
 
-    package_price = fields.Float('Package price', default=0.0)
-    include_package_price = fields.Boolean('Inclure le prix du colis')
     amount_total = fields.Float('Amount total', compute='_compute_amount_total', store=True)
     amount_distance = fields.Float('Amount per distance', compute='_compute_amount_per_distance', store=True, readonly=False)
     amount_region = fields.Float('Amount inter region', compute='_compute_amount_region', store=True, readonly=False)
+    amount_default = fields.Float('Montant par défaut', compute='_compute_amount_default', store=True, readonly=False)
+    package_price = fields.Float('Package price', default=0.0)
+    pricelist_id = fields.Many2one('product.pricelist', 'Liste de prix inter-région', ondelelte='set null')
+    distance_pricelist_id = fields.Many2one('product.pricelist', string='Liste de prix par km')
+    default_pricelist_id = fields.Many2one('product.pricelist', string='Liste de prix par défaut')
+    include_amount_default = fields.Boolean('Include le prix par défaut?')
     include_amount_distance = fields.Boolean('Include distance amount?')
-    pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
-    distance_pricelist_id = fields.Many2one('product.pricelist', string='Pricelist for pricing per distance')
+    include_package_price = fields.Boolean('Inclure le prix du colis')
+    include_amount_region = fields.Boolean('Inclure le montant par région')
     product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
 
     currency_id = fields.Many2one('res.currency', compute='_compute_currency')
@@ -209,34 +213,41 @@ class DeliveryPackage(models.Model):
     def _compute_amount_total(self):
         for rec in self:
             amount_total = 0
-            if rec.include_amount_distance:
+            if rec.amount_distance and rec.include_amount_distance:
                 amount_total += rec.amount_distance
-            if rec.include_package_price:
+            if rec.package_price and rec.include_package_price:
                 amount_total += rec.package_price
-            if rec.amount_region:
+            if rec.amount_region and rec.include_amount_region:
                 amount_total += rec.amount_region
+            if rec.amount_default and rec.include_amount_default:
+                amount_total += rec.amount_default
             rec.amount_total = amount_total
 
     @api.depends('delivery_picking_ids.distance', 'distance_pricelist_id')
     def _compute_amount_per_distance(self):
-        pricelist = self.env['ir.config_parameter'].get_param('ateroo_base.pricelist.distance')
-        pricelist = pricelist and self.env['product.pricelist'].browse(int(pricelist)) or False
         product_distance = self.env.ref('ateroo_data.product_distance', raise_if_not_found=False)
         for rec in self:
-            distance_pricelist = rec.distance_pricelist_id or pricelist
-            if rec.delivery_picking_ids and distance_pricelist and product_distance:
+            price = 0
+            if rec.delivery_picking_ids and rec.distance_pricelist_id and product_distance:
                 delivery_pickings = rec.delivery_picking_ids.filtered(lambda pick: pick.departure_id != rec.agency_id and pick.destination_id != rec.dest_agency_id)
                 distance = sum(delivery_pickings.mapped('distance'))
-                price_unit = distance_pricelist._get_product_price(product_distance, distance, product_distance.uom_id)
-                rec.amount_distance = float_round(price_unit * distance, precision_digits=0)
-            else:
-                rec.amount_distance = 0
+                price_unit = rec.distance_pricelist_id._get_product_price(product_distance, distance, product_distance.uom_id)
+                price += price_unit * distance
+            rec.amount_distance = float_round(price, precision_digits=0)
 
-    @api.depends('weight', 'volume', 'package_price', 'pricelist_id', 'agency_id', 'dest_agency_id', 'network')
+    @api.depends('product_tmpl_id', 'default_pricelist_id')
+    def _compute_amount_default(self):
+        for rec in self:
+            price = 0
+            if rec.default_pricelist_id and rec.product_tmpl_id:
+                price += rec.default_pricelist_id._get_product_price(rec.product_tmpl_id.product_variant_id, 1, rec.product_tmpl_id.product_variant_id.uom_id)
+            rec.amount_default = float_round(price, precision_digits=0)
+
+    @api.depends('weight', 'volume', 'package_price', 'pricelist_id', 'agency_id', 'dest_agency_id', 'network', 'include_amount_region')
     def _compute_amount_region(self):
         for rec in self:
             delivery_price = 0
-            if rec.network != 'inter_region':
+            if rec.network != 'inter_region' or not rec.include_amount_region:
                 rec.amount_region = 0
                 continue
             if rec.product_tmpl_id:

@@ -57,6 +57,8 @@ class DeliveryPicking(models.Model):
     @api.depends(
         'departure_id',
         'destination_id',
+        'package_id.street',
+        'package_id.recipient_street',
         'departure_id.agency_longitude',
         'departure_id.agency_latitude',
         'destination_id.agency_longitude',

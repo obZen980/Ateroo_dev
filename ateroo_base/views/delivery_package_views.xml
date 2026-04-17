@@ -150,26 +150,43 @@
                         </group>
                         <group name="pricing" string="Pricing">
                             <field name="product_tmpl_id"/>
-                            <field name="pricelist_id" invisible="network != 'inter_region'"/>
+                            <field name="default_pricelist_id"/>
                             <field name="distance_pricelist_id"/>
+                            <field name="pricelist_id" invisible="network != 'inter_region'"/>
                             <field name="customer_type" invisible="1"/>
-                            <field name="amount_region" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" invisible="network != 'inter_region'"/>
+                            <div class="o_td_label">
+                                <label for="amount_default"/>
+                            </div>
+                            <div class="d-flex">
+                                <field name="amount_default" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:300px; flex: 0 0 300px;" />
+                                <field name="include_amount_default" style="width:40px; flex: 0 0 40px;"/>
+                                <label for="include_amount_default" style="width:200px; flex: 0 0 200px;"/>
+                            </div>
                             <div class="o_td_label">
                                 <label for="amount_distance"/>
                             </div>
                             <div class="d-flex">
-                                <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:400px" />
-                                <field name="include_amount_distance" />
-                                <label for="include_amount_distance"/>
+                                <field name="amount_distance" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:300px; flex: 0 0 300px;" />
+                                <field name="include_amount_distance" style="width:40px; flex: 0 0 40px;"/>
+                                <label for="include_amount_distance" style="width:200px; flex: 0 0 200px;"/>
+                            </div>
+                            <div class="o_td_label" invisible="network != 'inter_region'">
+                                <label for="amount_region"/>
+                            </div>
+                            <div class="d-flex" invisible="network != 'inter_region'">
+                                <field name="amount_region" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:300px; flex: 0 0 300px;" />
+                                <field name="include_amount_region" style="width:40px; flex: 0 0 40px;" />
+                                <label for="include_amount_region" style="width:200px; flex: 0 0 200px;"/>
                             </div>
                             <div class="o_td_label">
                                 <label for="package_price"/>
                             </div>
                             <div class="d-flex" >
-                                    <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:350px"/>
-                                    <field name="include_package_price" />
-                                    <label for="include_package_price"/>
+                                    <field name="package_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" style="width:300px; flex: 0 0 300px;"/>
+                                    <field name="include_package_price" style="width:40px; flex: 0 0 40px;" />
+                                    <label for="include_package_price" style="width:200px; flex: 0 0 200px;"/>
                             </div>
+
 
                             <field name="currency_id" invisible="1"/>
                             <separator/>
