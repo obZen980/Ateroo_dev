@@ -1058,9 +1058,11 @@ msgstr "Coefficient de prix"
 #. module: ateroo_base
 #: model:ir.model,name:ateroo_base.model_product_pricelist
 #: model:ir.model.fields,field_description:ateroo_base.field_delivery_package__pricelist_id
+
+#. module: ateroo_base
 #: model:ir.ui.menu,name:ateroo_base.manu_ateroo_pricelist
 msgid "Pricelist"
-msgstr "Liste de prix inter-région"
+msgstr "Liste de prix"
 
 #. module: ateroo_base
 #: model:ir.model,name:ateroo_base.model_product_pricelist_item
