@@ -94,8 +94,7 @@ class DeliveryPackage(models.Model):
     amount_region = fields.Float('Amount inter region', compute='_compute_amount_region', store=True, readonly=False)
     include_amount_distance = fields.Boolean('Include distance amount?')
     pricelist_id = fields.Many2one('product.pricelist', 'Pricelist', ondelelte='set null')
-    distance_pricelist_id = fields.Many2one('product.pricelist', string='Pricelist for pricing per distance',
-                                            default=lambda self: int(self.env['ir.config_parameter'].get_param('ateroo_base.pricelist.distance')))
+    distance_pricelist_id = fields.Many2one('product.pricelist', string='Pricelist for pricing per distance')
     product_tmpl_id = fields.Many2one('product.template', 'Product', ondelete='set null')
 
     currency_id = fields.Many2one('res.currency', compute='_compute_currency')
